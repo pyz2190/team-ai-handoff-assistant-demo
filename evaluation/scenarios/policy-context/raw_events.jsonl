@@ -1,0 +1,2 @@
+{"event_ref":"evt:policy-1","seq":1,"status":"succeeded","event_type":"decision_confirmed","details":{"notification_policy":"daily digest"}}
+{"event_ref":"evt:policy-2","seq":2,"status":"succeeded","event_type":"option_rejected","details":{"option":"immediate notification"}}

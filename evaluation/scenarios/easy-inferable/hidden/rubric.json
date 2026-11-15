@@ -1,0 +1,9 @@
+{
+  "required_claims": {"next_step": ["fix mobile wrapping"]},
+  "supported_claims": {"next_step": ["fix mobile wrapping"]},
+  "forbidden_claims": [],
+  "required_actions": ["add regression test"],
+  "expected_unknowns": [],
+  "valid_citations": ["task.md", "evt:easy-1"],
+  "pass_score": 5
+}

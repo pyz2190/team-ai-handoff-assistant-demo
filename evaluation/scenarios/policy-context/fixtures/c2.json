@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "scenario_id": "policy-context",
+  "condition": "c2",
+  "answer": {
+    "claims": [
+      {"key": "notification_policy", "value": "daily digest", "citations": ["evt:policy-1"]},
+      {"key": "rejected_option", "value": "immediate notification", "citations": ["evt:policy-2"]}
+    ],
+    "next_actions": ["implement digest scheduler"],
+    "unknowns": ["delivery provider unverified"]
+  },
+  "metrics": {"tokens": 210, "steps": 3, "duration_ms": 1700}
+}

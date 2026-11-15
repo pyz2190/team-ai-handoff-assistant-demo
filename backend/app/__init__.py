@@ -1,0 +1,1 @@
+"""Team handoff assistant backend."""

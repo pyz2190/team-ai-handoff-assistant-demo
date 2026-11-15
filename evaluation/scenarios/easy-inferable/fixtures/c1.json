@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "scenario_id": "easy-inferable",
+  "condition": "c1",
+  "answer": {
+    "claims": [{"key": "next_step", "value": "fix mobile wrapping", "citations": ["evt:easy-1"]}],
+    "next_actions": ["add regression test"],
+    "unknowns": []
+  },
+  "metrics": {"tokens": 145, "steps": 3, "duration_ms": 1100}
+}

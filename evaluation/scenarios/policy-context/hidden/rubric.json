@@ -1,0 +1,15 @@
+{
+  "required_claims": {
+    "notification_policy": ["daily digest"],
+    "rejected_option": ["immediate notification"]
+  },
+  "supported_claims": {
+    "notification_policy": ["daily digest"],
+    "rejected_option": ["immediate notification"]
+  },
+  "forbidden_claims": [{"key": "notification_policy", "values": ["immediate notification"]}],
+  "required_actions": ["implement digest scheduler"],
+  "expected_unknowns": ["delivery provider unverified"],
+  "valid_citations": ["evt:policy-1", "evt:policy-2"],
+  "pass_score": 8
+}

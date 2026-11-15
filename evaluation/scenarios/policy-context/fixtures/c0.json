@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "scenario_id": "policy-context",
+  "condition": "c0",
+  "answer": {
+    "claims": [{"key": "notification_policy", "value": "immediate notification", "citations": []}],
+    "next_actions": [],
+    "unknowns": ["notification policy unknown"]
+  },
+  "metrics": {"tokens": 180, "steps": 3, "duration_ms": 1500}
+}

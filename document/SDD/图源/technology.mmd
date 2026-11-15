@@ -1,0 +1,11 @@
+flowchart TB
+    V[Vite 构建工具] -->|生成 dist| F[React + TypeScript]
+    F -->|同源 HTTPS / JSON| SERVER[Uvicorn<br/>TLS 与单 worker]
+    subgraph APP[同一 Python 应用进程]
+        SERVER --> HTTP[FastAPI / Pydantic]
+        HTTP --> BIZ[Python 业务模块<br/>授权、版本、审核、交接]
+        BIZ --> SQL[线程池数据库工作单元<br/>sqlite3 独占连接]
+        BIZ --> ADAPTER[生成适配接口<br/>HTTPX 异步调用]
+    end
+    SQL -->|显式 SQL 事务| DB[(SQLite 本机文件)]
+    ADAPTER -->|HTTPS| MODEL[待选外部文本模型]

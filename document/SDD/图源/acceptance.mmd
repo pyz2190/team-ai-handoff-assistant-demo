@@ -1,0 +1,23 @@
+sequenceDiagram
+    actor B as 指定接手人 B
+    participant S as Python 交接模块
+    participant D as SQLite
+    B->>S: 接收 requestId、快照、请求修订
+    S->>S: 工作线程创建连接，启用外键
+    S->>D: BEGIN IMMEDIATE
+    S->>D: 同连接复核身份与当前项目资格
+    S->>D: 读取请求、Receipt、版本和负责人
+    alt 同一 B 已成功接收该请求
+        D-->>S: 既有接收事实
+        S->>D: SQL COMMIT
+        S-->>B: 返回历史结果，负责人沿用当前值
+    else 首次接收且全部条件有效
+        S->>D: 更新请求、插入唯一 Receipt、变更负责人
+        S->>D: SQL COMMIT 全部修改
+        D-->>S: 提交成功
+        S-->>B: 接收成功，工作进度沿用原值
+    else 编辑、换人、撤权或版本已先变化
+        S->>D: SQL ROLLBACK
+        S-->>B: 冲突或无权，重新读取
+    end
+    Note over S,D: 每个分支均在原工作线程中关闭连接<br/>提交阶段失败同样回滚

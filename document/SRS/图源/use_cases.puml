@@ -1,0 +1,43 @@
+@startuml
+left to right direction
+actor "项目成员" as Member
+actor "当前负责人 A" as A
+actor "指定接手人 B" as B
+actor "项目负责人" as Lead
+actor "外部模型服务" as Model
+Member <|-- A
+Member <|-- B
+Member <|-- Lead
+rectangle "团队交接助手" {
+ usecase "UC-01 项目访问与成员维护" as U1
+ usecase "UC-02 创建任务" as U2
+ usecase "UC-03 维护任务与进度" as U3
+ usecase "UC-04 导入与查看上下文" as U4
+ usecase "UC-05 选择输入并生成草稿" as U5
+ usecase "UC-06 人工填写与修订" as U6
+ usecase "UC-07 审核并确认版本" as U7
+ usecase "UC-08 指定成员并发起交接" as U8
+ usecase "UC-09 阅读并请求补充" as U9
+ usecase "UC-10 拒绝接收" as U10
+ usecase "UC-11 主动接收任务" as U11
+ usecase "UC-12 接收后继续与完成" as U12
+ usecase "UC-13 查看交接历史" as U13
+}
+Member -- U1
+Member -- U4
+Member -- U13
+Lead -- U1
+Lead -- U2
+A -- U2
+A -- U3
+A -- U4
+A -- U5
+A -- U6
+A -- U7
+A -- U8
+A -- U12
+B -- U9
+B -- U10
+B -- U11
+Model -- U5
+@enduml
